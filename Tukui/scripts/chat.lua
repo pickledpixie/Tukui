@@ -213,6 +213,13 @@ local function SetupChatPosAndFont(self)
 			chat:SetPoint("BOTTOMLEFT", ChatLBackground, "BOTTOMLEFT", TukuiDB.Scale(2), TukuiDB.Scale(4))
 			_G["ChatFrame"..i]:SetSize(TukuiDB.Scale(TukuiCF["chat"].chatwidth - 4), TukuiDB.Scale(TukuiCF["chat"].chatheight))
 			FCF_SavePositionAndDimensions(chat)
+		elseif i == 4 and name == "Loot" then
+			if not chat.isDocked then
+				chat:ClearAllPoints()
+				chat:SetPoint("BOTTOMRIGHT", RDummyFrame, "BOTTOMRIGHT", TukuiDB.Scale(-2), TukuiDB.Scale(4))
+				chat:SetJustifyH("RIGHT") 
+				FCF_SavePositionAndDimensions(chat)
+			end
 		end
 	end
 end
@@ -412,3 +419,4 @@ if TukuiCF.chat.whispersound then
 		end
 	end)
 end
+

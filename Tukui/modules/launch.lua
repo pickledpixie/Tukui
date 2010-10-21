@@ -13,9 +13,9 @@ local function install()
 	SetCVar("nameplateShowFriendlyGuardians", 0)
 	SetCVar("nameplateShowFriendlyTotems", 0)
 	SetCVar("nameplateShowEnemies", 1)
-	SetCVar("nameplateShowEnemyPets", 1)
-	SetCVar("nameplateShowEnemyGuardians", 1)
-	SetCVar("nameplateShowEnemyTotems", 1)
+	SetCVar("nameplateShowEnemyPets", 0)
+	SetCVar("nameplateShowEnemyGuardians", 0)
+	SetCVar("nameplateShowEnemyTotems", 0)
 	SetCVar("ShowClassColorInNameplate", 1)
 	SetCVar("screenshotQuality", 10)
 	SetCVar("cameraDistanceMax", 50)
@@ -43,6 +43,14 @@ local function install()
 		FCF_SetLocked(ChatFrame1, 1)
 		FCF_DockFrame(ChatFrame2)
 		FCF_SetLocked(ChatFrame2, 1)
+		FCF_OpenNewWindow("General")
+		FCF_SetLocked(ChatFrame3, 1)
+		FCF_DockFrame(ChatFrame3)
+
+		FCF_OpenNewWindow("Loot")
+		FCF_UnDockFrame(ChatFrame4)
+		FCF_SetLocked(ChatFrame4, 1)
+		ChatFrame4:Show();
 				
 		for i = 1, NUM_CHAT_WINDOWS do
 			local frame = _G[format("ChatFrame%s", i)]
@@ -58,6 +66,9 @@ local function install()
 			if i == 1 then
 				frame:ClearAllPoints()
 				frame:SetPoint("BOTTOMLEFT", ChatLBackground, "BOTTOMLEFT", TukuiDB.Scale(2), 0)
+			elseif i == 4 and chatName == "Loot" then
+				frame:ClearAllPoints()
+				frame:SetPoint("BOTTOMRIGHT", RDummyFrame, "BOTTOMRIGHT", TukuiDB.Scale(-2), TukuiDB.Scale(4))
 			end
 					
 			-- save new default position and dimension
@@ -72,11 +83,13 @@ local function install()
 		end
 		
 	ChatFrame_RemoveAllMessageGroups(ChatFrame1)
-	ChatFrame_AddChannel(ChatFrame1, "Trade")
-	ChatFrame_AddChannel(ChatFrame1, "General")
-	ChatFrame_AddChannel(ChatFrame1, "LocalDefense")
-	ChatFrame_AddChannel(ChatFrame1, "GuildRecruitment")
-	ChatFrame_AddChannel(ChatFrame1, "LookingForGroup")
+	ChatFrame_RemoveChannel(ChatFrame1, "Общий")
+	ChatFrame_RemoveChannel(ChatFrame1, "Торговля")
+	ChatFrame_RemoveChannel(ChatFrame1, "Обороналокальный")
+	ChatFrame_RemoveChannel(ChatFrame1, "Оборонаглобальный")
+	ChatFrame_RemoveChannel(ChatFrame1, "Гильдии")
+	ChatFrame_RemoveChannel(ChatFrame1, "поискспутников")
+
 	ChatFrame_AddMessageGroup(ChatFrame1, "SAY")
 	ChatFrame_AddMessageGroup(ChatFrame1, "EMOTE")
 	ChatFrame_AddMessageGroup(ChatFrame1, "YELL")
@@ -108,22 +121,41 @@ local function install()
 	ChatFrame_AddMessageGroup(ChatFrame1, "ACHIEVEMENT")
 	ChatFrame_AddMessageGroup(ChatFrame1, "BN_WHISPER")
 	ChatFrame_AddMessageGroup(ChatFrame1, "BN_CONVERSATION")
-	ChatFrame_AddMessageGroup(ChatFrame1, "BN_INLINE_TOAST_ALERT")
-	ChatFrame_AddMessageGroup(ChatFrame1, "COMBAT_XP_GAIN")
-	ChatFrame_AddMessageGroup(ChatFrame1, "COMBAT_HONOR_GAIN")
-	ChatFrame_AddMessageGroup(ChatFrame1, "LOOT")
-	ChatFrame_AddMessageGroup(ChatFrame1, "MONEY")
-	ChatFrame_AddMessageGroup(ChatFrame1, "COMBAT_XP_GAIN")		
+	ChatFrame_AddMessageGroup(ChatFrame1, "CHANNEL")
+			
+	-- Setup the spam chat frame
+	ChatFrame_RemoveAllMessageGroups(ChatFrame3)
+	ChatFrame_AddChannel(ChatFrame3, "Общий")
+	ChatFrame_AddChannel(ChatFrame3, "Торговля")
+	ChatFrame_AddChannel(ChatFrame3, "Обороналокальный")
+	ChatFrame_AddChannel(ChatFrame3, "Оборонаглобальный")
+	ChatFrame_AddChannel(ChatFrame3, "Гильдии")
+	ChatFrame_AddChannel(ChatFrame3, "поискспутников")
+	-- Setup colors
+	ChangeChatColor("CHANNEL1", 1, 1, 1)
+	ChangeChatColor("CHANNEL2", 1, 1, .5)
+	ChangeChatColor("CHANNEL3", 1, .5, 0)
+	ChangeChatColor("CHANNEL4", 1, 0, 0)
+	ChangeChatColor("CHANNEL5", 0, 1, 0)
+	ChangeChatColor("CHANNEL6", .5, .7, 1)
+	
+	-- Setup the right chat
+	ChatFrame_RemoveAllMessageGroups(ChatFrame4)
+--	ChatFrame_AddMessageGroup(ChatFrame4, "GUILD_XP_GAIN")
+	ChatFrame_AddMessageGroup(ChatFrame4, "COMBAT_XP_GAIN")
+	ChatFrame_AddMessageGroup(ChatFrame4, "COMBAT_HONOR_GAIN")
+	ChatFrame_AddMessageGroup(ChatFrame4, "COMBAT_FACTION_CHANGE")
+	ChatFrame_AddMessageGroup(ChatFrame4, "LOOT")
+	ChatFrame_AddMessageGroup(ChatFrame4, "MONEY")
+	ChatFrame_AddMessageGroup(ChatFrame4, "TARGETICONS")
 	
 	
-	if TukuiDB.myname == "Elv" then
+	
+	if TukuiDB.myname == "Аффли" then
 		--keep losing my god damn channels everytime i resetui
-		ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "tystank")
-		ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "tys")
-		ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "crusaderaura")
-		ChangeChatColor("CHANNEL5", 147/255, 112/255, 219/255)
-		ChangeChatColor("CHANNEL6", 139/255, 115/255, 85/255)
-		ChangeChatColor("CHANNEL7", RAID_CLASS_COLORS["PALADIN"].r, RAID_CLASS_COLORS["PALADIN"].g, RAID_CLASS_COLORS["PALADIN"].b)
+		ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "nnlock")
+		ChangeChatColor("CHANNEL7", RAID_CLASS_COLORS["WARLOCK"].r, RAID_CLASS_COLORS["WARLOCK"].g, RAID_CLASS_COLORS["WARLOCK"].b)
+		ChangeChatColor("OFFICER", .1, 1, .8)
 	end	
 		-- enable classcolor automatically on login and on each character without doing /configure each time.
 		ToggleChatColorNamesByClassGroup(true, "SAY")
@@ -278,5 +310,6 @@ SlashCmdList["UIHELP"] = UIHelp
 
 SLASH_CONFIGURE1 = "/resetui"
 SlashCmdList.CONFIGURE = function() StaticPopup_Show("INSTALL_UI") end
+
 
 
