@@ -107,6 +107,7 @@
 	<Script file="scripts\raidUtility.lua"/>
 	<Script file="scripts\raidBuffReminder.lua"/>
 	<Script file="scripts\classtimer.lua"/>
+	<Script file="scripts\getallmail.lua"/>
 	
 	<Include file="unitframes\templates.xml"/>
 	<Script file="unitframes\tags.lua"/>		
