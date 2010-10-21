@@ -208,4 +208,3 @@ if TukuiCF["datatext"].battleground == true then
 	end)
 end
 
-

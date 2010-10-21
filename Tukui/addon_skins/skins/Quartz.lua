@@ -24,6 +24,7 @@ Mod_AddonSkins:RegisterSkin("Quartz",function(Skin, skin, Layout, layout, config
 			bar.IconBorder:SetPoint("TOPLEFT",bar.Icon,"TOPLEFT",TukuiDB.Scale(-config.borderWidth),TukuiDB.Scale(config.borderWidth))
 			bar.IconBorder:SetPoint("BOTTOMRIGHT",bar.Icon,"BOTTOMRIGHT",TukuiDB.Scale(config.borderWidth),TukuiDB.Scale(-config.borderWidth))
 			bar.IconBorder:SetFrameStrata("LOW")
+			TukuiDB.CreateShadow(bar.IconBorder)
 		end
 		if bar.config.hideicon then
 			bar.IconBorder:Hide()

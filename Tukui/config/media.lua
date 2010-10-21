@@ -14,7 +14,7 @@ TukuiCF["media"] = {
 	["backdropcolor"] = { .1,.1,.1,1 }, -- background color of tukui panels
 	["backdropfadecolor"] = { .1,.1,.1,0.8 }, --this is always the same as the backdrop color with an alpha of 0.8, see colors.lua
 	["buttonhover"] = [[Interface\AddOns\Tukui\media\textures\button_hover]],
-	["valuecolor"] = {1,0.823,0}, -- color for values of datatexts, classcolor must be off
+	["valuecolor"] = {0,.5,1}, -- color for values of datatexts, classcolor must be off
 	["raidicons"] = [[Interface\AddOns\Tukui\media\textures\raidicons.blp]], -- new raid icon textures by hankthetank
 	-- sound
 	["whisper"] = [[Interface\AddOns\Tukui\media\sounds\whisper.mp3]],
