@@ -24,7 +24,6 @@
 	tukuilocal.datatext_bags = "Сумки: "
 	tukuilocal.datatext_friends = "Друзья"
 	tukuilocal.datatext_online = "В игре: "
-	tukuilocal.datatext_armor = "Броня"
 	tukuilocal.datatext_earned = "Получено:"
 	tukuilocal.datatext_spent = "Потрачено:"
 	tukuilocal.datatext_deficit = "Убыток:"
@@ -93,7 +92,7 @@
 	tukuilocal.merchant_repairnomoney = "Не достаточно денег на починку!"
 	tukuilocal.merchant_repaircost = "Предметы починены за"
 	tukuilocal.merchant_trashsell = "Серые предметы проданы и Вы получили"
-	
+
 
 	tukuilocal.goldabbrev = "|cffffd700з|r"
 	tukuilocal.silverabbrev = "|cffc7c7cfс|r"
@@ -113,7 +112,7 @@
 	tukuilocal.unitframes_ouf_gohawk = "Дух Ястреба"
 	tukuilocal.unitframes_ouf_goviper = "Дух Гадюки"
 	tukuilocal.unitframes_disconnected = "D/C"
-	
+
 
 	tukuilocal.tooltip_count = "Кол-во"
 
@@ -136,10 +135,7 @@
 	tukuilocal.bags_stackend = "Заполнение завершено."
 	tukuilocal.bags_rightclick_search = "ПКМ для поиска."
 
-
 	tukuilocal.chat_invalidtarget = "Неверная цель"
-
-	
 
 	tukuilocal.core_autoinv_enable = "Автоприглашение ВКЛ: invite"
 	tukuilocal.core_autoinv_enable_c = "Автоприглашение ВКЛ: "
@@ -170,7 +166,7 @@
 	tukuilocal.bind_instruct = "Наведите указатель мыши на кнопку действия, чтобы назначить клавишу. Нажмите клавишу ESC или правую кнопку мыши чтобы убрать назначение."
 	tukuilocal.bind_save = "Сохранить назначения"
 	tukuilocal.bind_discardbind = "Отменить назначения"
-	
+
 
 	tukuilocal.core_raidutil = "Инструменты рейда"
 	tukuilocal.core_raidutil_disbandgroup = "Распустить группу"
@@ -184,5 +180,5 @@
 	tukuilocal.hunter_unhappy = "Ваш питомец несчастлив!"
 	tukuilocal.hunter_content = "Ваш питомец доволен!"
 	tukuilocal.hunter_happy = "Ваш питомец счастлив!"
-
 end
+
