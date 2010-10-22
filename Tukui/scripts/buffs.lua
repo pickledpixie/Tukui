@@ -31,6 +31,7 @@ for i = 1, 3 do
 	_G["TempEnchant"..i.."Duration"]:ClearAllPoints()
 	_G["TempEnchant"..i.."Duration"]:SetPoint("BOTTOM", 0, TukuiDB.Scale(-13))
 	_G["TempEnchant"..i.."Duration"]:SetFont(TukuiCF["media"].font, 12, "THINOUTLINE")
+	
 end
 
 local function StyleBuffs(buttonName, index, debuff)
@@ -79,6 +80,19 @@ local function UpdateBuffAnchors()
 	for index=1, BUFF_ACTUAL_DISPLAY do
 		local buff = _G[buttonName..index]
 		StyleBuffs(buttonName, index, false)
+		-- Leaving this here just in case someone want to use it
+		-- This enable buff border coloring according to Type
+		--[[
+		local dtype = select(5, UnitBuff("player",index))		
+		local color
+		if (dtype ~= nil) then
+			color = DebuffTypeColor[dtype]
+		else
+			color = DebuffTypeColor["none"]
+		end
+		_G[buttonName..index.."Panel"]:SetBackdropBorderColor(color.r * 0.6, color.g * 0.6, color.b * 0.6)
+		--]]
+		
 		
 		if ( buff.consolidated ) then
 			if ( buff.parent == BuffFrame ) then
