@@ -202,6 +202,7 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
 		_G["ReadyCheckFrame"]:HookScript("OnShow", function(self) if UnitIsUnit("player", self.initiator) then self:Hide() end end) -- bug fix, don't show it if initiator
 	end
 		
+end)
 	-- mac menu/option panel, made by affli.
 	if IsMacClient() then
 		-- Skin main frame and reposition the header
@@ -222,13 +223,13 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
 		SkinButton(_G["MacOptionsButtonCompress"])
  
 		--Reposition and resize buttons
-		tPoint, tRTo, tRP, tX, tY =  _G["MacOptionsButtonCompress"]:GetPoint()
+		local tPoint, tRTo, tRP, tX, tY =  _G["MacOptionsButtonCompress"]:GetPoint()
 		_G["MacOptionsButtonCompress"]:SetWidth(136)
 		_G["MacOptionsButtonCompress"]:SetPoint(tPoint, tRTo, tRP, tX+4, tY)
  
 		_G["MacOptionsFrameCancel"]:SetWidth(96)
 		_G["MacOptionsFrameCancel"]:SetHeight(22)
-		tPoint, tRTo, tRP, tX, tY =  _G["MacOptionsFrameCancel"]:GetPoint()
+		local tPoint, tRTo, tRP, tX, tY =  _G["MacOptionsFrameCancel"]:GetPoint()
 		_G["MacOptionsFrameCancel"]:SetPoint(tPoint, tRTo, tRP, tX-2, tY)
  
 		_G["MacOptionsFrameOkay"]:ClearAllPoints()
@@ -244,4 +245,4 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
 		_G["MacOptionsFrameDefaults"]:SetWidth(96)
 		_G["MacOptionsFrameDefaults"]:SetHeight(22)
 	end
-end)
+
