@@ -207,4 +207,8 @@ if TukuiCF["datatext"].battleground == true then
 		end
 	end)
 end
+-- Topbar from Eclipse
+local tbar = CreateFrame("Frame", "TukuiTopBar", UIParent)
+TukuiDB.CreatePanel(tbar, (GetScreenWidth() * UIParent:GetEffectiveScale()) * 2, 22, "TOP", UIParent, "TOP", 0, 5)
+tbar:SetFrameLevel(0)
 
