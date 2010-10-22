@@ -42,7 +42,7 @@ TukuiFonts:SetScript("OnEvent", function(self, event, addon)
 	SetFont(QuestFont,                          NORMAL, 12)
 	SetFont(QuestFont_Large,                    NORMAL, 14)
 	SetFont(SystemFont_Large,                   NORMAL, 15)
-	SetFont(SystemFont_Shadow_Huge1,			NORMAL, 20, "THINOUTLINE") -- Raid Warning, Boss emote frame too
+	SetFont(SystemFont_Shadow_Huge1,	    NORMAL, 20, "THINOUTLINE") -- Raid Warning, Boss emote frame too
 	SetFont(SystemFont_Med1,                    NORMAL, 12)
 	SetFont(SystemFont_Med3,                    NORMAL, 13)
 	SetFont(SystemFont_OutlineThick_Huge2,      NORMAL, 20, "THICKOUTLINE")
@@ -56,11 +56,16 @@ TukuiFonts:SetScript("OnEvent", function(self, event, addon)
 	SetFont(SystemFont_Tiny,                    NORMAL, 12)
 	SetFont(Tooltip_Med,                        NORMAL, 12)
 	SetFont(Tooltip_Small,                      NORMAL, 12)
-	SetFont(ZoneTextString,						NORMAL, 32, "OUTLINE")
-	SetFont(SubZoneTextString,					NORMAL, 25, "OUTLINE")
-	SetFont(PVPInfoTextString,					NORMAL, 22, "THINOUTLINE")
-	SetFont(PVPArenaTextString,					NORMAL, 22, "THINOUTLINE")
+	SetFont(ZoneTextString,			    NORMAL, 32, "OUTLINE")
+	SetFont(SubZoneTextString,		    NORMAL, 25, "OUTLINE")
+	SetFont(PVPInfoTextString,		    NORMAL, 22, "THINOUTLINE")
+	SetFont(PVPArenaTextString,		    NORMAL, 22, "THINOUTLINE")
 	SetFont(CombatTextFont,                     COMBAT, 100, "THINOUTLINE") -- number here just increase the font quality.
+	SetFont(FriendsFont_Normal,		    NORMAL, 12) --Friends frame names
+	SetFont(FriendsFont_Small,		    NORMAL, 10) --Last online text
+	SetFont(FriendsFont_Large,		    NORMAL, 14) --Not really sure what this does, but it's set to fit in
+	SetFont(FriendsFont_UserText,	            NORMAL, 11) --Real ID status text
+	
 	
 	hooksecurefunc("PlayerTitleFrame_UpdateTitles", FixTitleFont)
 	FixTitleFont()

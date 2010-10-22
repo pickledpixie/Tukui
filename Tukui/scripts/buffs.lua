@@ -166,3 +166,26 @@ f:RegisterEvent("PLAYER_EVENTERING_WORLD")
 hooksecurefunc("AuraButton_OnUpdate", UpdateFlash)
 hooksecurefunc("BuffFrame_UpdateAllBuffAnchors", UpdateBuffAnchors)
 hooksecurefunc("DebuffButton_UpdateAnchors", UpdateDebuffAnchors)
+
+SecondsToTimeAbbrev = function(time)
+local hr, m, s, text
+	if time <= 0 then text = ""
+	elseif(time < 3600 and time > 60) then
+		hr = floor(time / 3600)
+		m = floor(mod(time, 3600) / 60 + 1)
+		text = format("%d"..""..valuecolor.." m.", m)
+	elseif(time < 60 and time > 10) then
+		m = floor(time / 60)
+		s = mod(time, 60)
+		text = (m == 0 and format("%d"..valuecolor.." s.", s))
+	elseif time < 10 then
+		s = mod(time, 60)
+		text = (format("%d"..valuecolor.." s.", s))
+	else
+		hr = floor(time / 3600 + 1)
+		text = format("%d"..valuecolor.." h.", hr)
+	end
+	text = format("|cffffffff".."%s", text)
+	return text
+end
+
