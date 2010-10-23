@@ -34,6 +34,9 @@ local arenaboss_height = TukuiDB.Scale(23)
 local assisttank_width = TukuiDB.Scale(100)
 local assisttank_height = TukuiDB.Scale(20)
 
+--Offset of PowerBar for Player/Target
+local powerbar_offset = TukuiDB.Scale(15)
+
 ------------------------------------------------------------------------
 --	Layout
 ------------------------------------------------------------------------
@@ -83,7 +86,7 @@ local function Shared(self, unit)
 		local health = CreateFrame('StatusBar', nil, self)
 		health:SetWidth(original_width)
 		health:SetHeight(original_height)
-		health:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", TukuiDB.Scale(-9), TukuiDB.Scale(9))
+		health:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", -powerbar_offset, powerbar_offset)
 		health:SetStatusBarTexture(normTex)
 		self.health = health
 		
@@ -132,7 +135,7 @@ local function Shared(self, unit)
 		PowerFrame:SetHeight(original_height)
 		PowerFrame:SetWidth(original_width)
 		PowerFrame:SetFrameLevel(self:GetFrameLevel() - 1)
-		PowerFrame:SetPoint("BOTTOMRIGHT", self.Health, "BOTTOMRIGHT", TukuiDB.Scale(9), TukuiDB.Scale(-9))
+		PowerFrame:SetPoint("BOTTOMRIGHT", self.Health, "BOTTOMRIGHT", powerbar_offset, -powerbar_offset)
 
 		TukuiDB.SetTemplate(PowerFrame)
 		PowerFrame:SetBackdropBorderColor(unpack(TukuiCF["media"].altbordercolor))	
@@ -157,8 +160,8 @@ local function Shared(self, unit)
 		power.PostUpdate = TukuiDB.PostUpdatePower
 		
 		--Adjust player frame size
-		player_width = player_width + TukuiDB.Scale(9)
-		player_height = player_height + TukuiDB.Scale(9)
+		player_width = player_width + powerbar_offset
+		player_height = player_height + powerbar_offset
 		
 		self.Power = power
 		self.Power.bg = powerBG
@@ -261,7 +264,7 @@ local function Shared(self, unit)
 			local ThreatBar = CreateFrame("StatusBar", self:GetName()..'_ThreatBar', self)
 			ThreatBar:SetWidth(original_width)
 			ThreatBar:SetHeight(TukuiDB.Scale(5))
-			ThreatBar:SetPoint("TOPLEFT", self.Health, "BOTTOMLEFT", 0, TukuiDB.Scale(-14))
+			ThreatBar:SetPoint("TOPLEFT", self.Health, "BOTTOMLEFT", 0, -powerbar_offset + -TukuiDB.Scale(5))
 			ThreatBar:SetStatusBarTexture(normTex)
 			ThreatBar:GetStatusBarTexture():SetHorizTile(false)
 			ThreatBar:SetBackdrop(backdrop)
@@ -306,7 +309,7 @@ local function Shared(self, unit)
 			Experience:SetStatusBarColor(0, 0.4, 1, .8)
 			Experience:SetWidth(original_width)
 			Experience:SetHeight(TukuiDB.Scale(5))
-			Experience:SetPoint("TOPLEFT", self.Health, "BOTTOMLEFT", 0, TukuiDB.Scale(-14))
+			Experience:SetPoint("TOPLEFT", self.Health, "BOTTOMLEFT", 0, -powerbar_offset + -TukuiDB.Scale(5))
 			Experience.noTooltip = true
 			Experience:EnableMouse(true)
 			self.Experience = Experience
@@ -355,7 +358,7 @@ local function Shared(self, unit)
 			Reputation:SetBackdropColor(unpack(TukuiCF["media"].backdropcolor))
 			Reputation:SetWidth(original_width)
 			Reputation:SetHeight(TukuiDB.Scale(5))
-			Reputation:SetPoint("TOPLEFT", self.Health, "BOTTOMLEFT", 0, TukuiDB.Scale(-14))
+			Reputation:SetPoint("TOPLEFT", self.Health, "BOTTOMLEFT", 0, -powerbar_offset + -TukuiDB.Scale(5))
 			Reputation.Tooltip = true
 
 			Reputation:HookScript("OnEnter", function(self)
@@ -616,10 +619,10 @@ local function Shared(self, unit)
 			local castbar = CreateFrame("StatusBar", self:GetName().."_Castbar", self)
 			if TukuiCF["castbar"].castermode == true then
 				castbar:SetWidth(TukuiActionBarBackground:GetWidth() - TukuiDB.Scale(2))
-				castbar:SetPoint("BOTTOMRIGHT", TukuiActionBarBackground, "TOPRIGHT", TukuiDB.Scale(-2), TukuiDB.Scale(5))
+				castbar:SetPoint("BOTTOMRIGHT", TukuiActionBarBackground, "TOPRIGHT", TukuiDB.Scale(-2), -powerbar_offset + -TukuiDB.Scale(5))
 			else
 				castbar:SetWidth(original_width)
-				castbar:SetPoint("TOPRIGHT", self.Health, "BOTTOMRIGHT", 0, TukuiDB.Scale(-14))
+				castbar:SetPoint("TOPRIGHT", self.Health, "BOTTOMRIGHT", 0, -powerbar_offset + -TukuiDB.Scale(5))
 			end
  
 			castbar:SetHeight(TukuiDB.Scale(20))
@@ -729,7 +732,7 @@ local function Shared(self, unit)
 		local health = CreateFrame('StatusBar', nil, self)
 		health:SetWidth(original_width)
 		health:SetHeight(original_height)
-		health:SetPoint("BOTTOMLEFT", self, "BOTTOMLEFT", TukuiDB.Scale(9), TukuiDB.Scale(9))
+		health:SetPoint("BOTTOMLEFT", self, "BOTTOMLEFT", powerbar_offset, powerbar_offset)
 		health:SetStatusBarTexture(normTex)
 		self.health = health
 		
@@ -779,7 +782,7 @@ local function Shared(self, unit)
 		PowerFrame:SetHeight(original_height)
 		PowerFrame:SetWidth(original_width)
 		PowerFrame:SetFrameLevel(self:GetFrameLevel() - 1)
-		PowerFrame:SetPoint("BOTTOMLEFT", self.Health, "BOTTOMLEFT", TukuiDB.Scale(-9), TukuiDB.Scale(-9))
+		PowerFrame:SetPoint("BOTTOMLEFT", self.Health, "BOTTOMLEFT", -powerbar_offset, -powerbar_offset)
 		TukuiDB.SetTemplate(PowerFrame)
 		PowerFrame:SetBackdropBorderColor(unpack(TukuiCF["media"].altbordercolor))	
 		self.PowerFrame = PowerFrame
@@ -801,8 +804,8 @@ local function Shared(self, unit)
 		power.value:SetPoint("LEFT", health, "LEFT", TukuiDB.Scale(4), TukuiDB.Scale(1))
 		power.PreUpdate = TukuiDB.PreUpdatePower
 		power.PostUpdate = TukuiDB.PostUpdatePower
-		target_width = target_width + TukuiDB.Scale(9)
-		target_height = target_height + TukuiDB.Scale(9)
+		target_width = target_width + powerbar_offset
+		target_height = target_height + powerbar_offset
 		
 		self.Power = power
 		self.Power.bg = powerBG
@@ -900,7 +903,7 @@ local function Shared(self, unit)
 		if TukuiCF["castbar"].unitcastbar == true then
 			local castbar = CreateFrame("StatusBar", self:GetName().."_Castbar", self)
 			castbar:SetWidth(original_width)
-			castbar:SetPoint("TOPRIGHT", self.Health, "BOTTOMRIGHT", 0, TukuiDB.Scale(-14))
+			castbar:SetPoint("TOPRIGHT", self.Health, "BOTTOMRIGHT", 0, -powerbar_offset + -TukuiDB.Scale(5))
  
 			castbar:SetHeight(TukuiDB.Scale(20))
 			castbar:SetStatusBarTexture(normTex)
@@ -1669,5 +1672,5 @@ end
 
 --Move threatbar to targetframe
 if oUF_Tukz_player.ThreatBar then
-	oUF_Tukz_player.ThreatBar:SetPoint("TOPLEFT", oUF_Tukz_target.Health, "BOTTOMLEFT", 0, TukuiDB.Scale(-14))
+	oUF_Tukz_player.ThreatBar:SetPoint("TOPLEFT", oUF_Tukz_target.Health, "BOTTOMLEFT", 0, -powerbar_offset + -TukuiDB.Scale(5))
 end
