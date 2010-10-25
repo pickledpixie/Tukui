@@ -8,7 +8,7 @@
 }
 
 TukuiCF["skin"] = {	--Skin addons by Darth Android
-	["recount"] = false,
+	["recount"] = true,
 	["skada"] = true,
 	["dxe"] = false,
 	["omen"] = false,

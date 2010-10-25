@@ -12,7 +12,7 @@ bottompanel:SetFrameLevel(1)
 bottompanel:SetBackdrop({
   bgFile = TukuiCF["media"].normTex, 
   edgeFile = TukuiCF["media"].blank, 
-  tile = false, tileSize = 0, edgeSize = TukuiDB.mult, 
+  tile = true, tileSize = 16, edgeSize = TukuiDB.mult, 
   insets = { left = -TukuiDB.mult, right = -TukuiDB.mult, top = -TukuiDB.mult, bottom = -TukuiDB.mult}
 })
 bottompanel:SetBackdropColor(unpack(TukuiCF["media"].bordercolor))
