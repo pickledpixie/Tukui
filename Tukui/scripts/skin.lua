@@ -221,10 +221,13 @@ end)
 		SkinButton(_G["MacOptionsButtonKeybindings"])
 		SkinButton(_G["MacOptionsFrameDefaults"])
 		SkinButton(_G["MacOptionsButtonCompress"])
+--		_G["MacOptionsFrameDefaults"]:SetTexture("")
+
  
 		--Reposition and resize buttons
 		local tPoint, tRTo, tRP, tX, tY =  _G["MacOptionsButtonCompress"]:GetPoint()
 		_G["MacOptionsButtonCompress"]:SetWidth(136)
+		_G["MacOptionsButtonCompress"]:ClearAllPoints()
 		_G["MacOptionsButtonCompress"]:SetPoint(tPoint, tRTo, tRP, tX+4, tY)
  
 		_G["MacOptionsFrameCancel"]:SetWidth(96)
