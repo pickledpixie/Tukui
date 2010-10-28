@@ -27,7 +27,7 @@
 	TukuiL.option_media_whisper = "Звук шепота"
 	TukuiL.option_media_warning = "Звук предупреждения"
 	TukuiL.option_media_glossy = "Путь к файлу глянцевой текстуры"
-	
+
 	-- nameplate
 	TukuiL.option_nameplates = "Индикаторы\nздоровья"
 	TukuiL.option_nameplates_enable = "Включить индикаторы здоровья"
@@ -46,7 +46,7 @@
 	TukuiL.option_combattext_showoverheal = "Показывать переисцеление"
 	TukuiL.option_combattext_fontsize = "Размер шрифта"
 	TukuiL.option_combattext_showhots = "Показывать ХоТы"
-	 
+
 	-- classtimer
 	TukuiL.option_classtimer = "Class Timer"
 	TukuiL.option_classtimer_enable = "Включить Classtimer"
@@ -149,7 +149,7 @@
 	TukuiL.option_loot_enableloot = "Включить окно добычи"
 	TukuiL.option_loot_autogreed = "Автоматически нажимать не откажусь для зеленых предметов на макс. уровне"
 	TukuiL.option_loot_enableroll = "Включить окно розыгрыша"
-	 
+
 	-- tooltip
 	TukuiL.option_tooltip = "Подсказка"
 	TukuiL.option_tooltip_enable = "Включить подсказку"
@@ -192,12 +192,12 @@
 	TukuiL.option_actionbar_rbn2 = "Количество панелей внизу (1, 1.5, или 2)"
 	TukuiL.option_actionbar_rn = "Количество панелей справа (1, 2 or 3)"
 	TukuiL.option_actionbar_splitbar = "Включить раздельную панель"
-	 
+
 	-- arena
 	TukuiL.option_arena = "Арена"
 	TukuiL.option_arena_st = "Включить отслеживание вражеских перезарядок на арене"
 	TukuiL.option_arena_uf = "Включить фреймы арены"
-	 
+
 	-- cooldowns
 	TukuiL.option_cooldown = "Перезарядки"
 	TukuiL.option_cooldown_enable = "Числовая перезарядка на кнопках"
@@ -229,3 +229,4 @@
 	TukuiL_option_perchar = "Вы уверены что хотите сменить режим сохранения настроек ?"
 	TukuiL_option_makeselection = "Вы должны сделать выбор прежде чем продолжите конфигурацию"
 end
+
