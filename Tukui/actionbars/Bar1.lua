@@ -2,8 +2,7 @@ if not TukuiCF["actionbar"].enable == true then return end
 
 ---------------------------------------------------------------------------
 -- Setup Main Action Bar.
--- Now used for stances, Bonus, Vehicle at the same time.
--- Since t12, it's also working for druid cat stealth. (a lot requested)
+-- Now used for stances, Bonus at the same time.
 ---------------------------------------------------------------------------
 
 local bar = CreateFrame("Frame", "TukuiMainMenuBar", TukuiActionBarBackground, "SecureHandlerStateTemplate")
@@ -65,8 +64,19 @@ bar:SetScript("OnEvent", function(self, event, ...)
 				button:SetAttribute("actionpage", tonumber(newstate))
 			end
 		]])
+
+		self:SetAttribute("_onstate-vehicleupdate", [[
+			if newstate == "s2" then
+				self:Hide()
+				self:GetParent():Hide()
+			else
+				self:Show()
+				self:GetParent():Show()
+			end
+		]])
 		
 		RegisterStateDriver(self, "page", GetBar())
+		RegisterStateDriver(self, "vehicleupdate", "[vehicleui]s2;s1")
 	elseif event == "PLAYER_ENTERING_WORLD" then
 		MainMenuBar_UpdateKeyRing()
 		local button

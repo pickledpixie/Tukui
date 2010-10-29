@@ -170,7 +170,7 @@ TukuiCF["chat"] = {
 		["chatheight"] = 150,					-- height of chat frame
 		["fadeoutofuse"] = false,				-- fade chat text when out of use
 		["sticky"] = true,						-- when opening the chat edit box resort to previous channel
-	["bubbles"] = true,							--skin blizzard chat bubbles
+		["bubbles"] = true,							--skin blizzard chat bubbles
 }
 
 TukuiCF["tooltip"] = {
