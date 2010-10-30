@@ -78,9 +78,9 @@ TukuiCF["auras"] = {
 
 TukuiCF["castbar"] = {
 	["unitcastbar"] = true, -- enable tukui castbar
-		["cblatency"] = false, -- enable castbar latency
+		["cblatency"] = true, -- enable castbar latency
 		["cbicons"] = true, -- enable icons on castbar
-		["castermode"] = false, -- makes castbar larger and puts it above the actionbar frame
+		["castermode"] = true, -- makes castbar larger and puts it above the actionbar frame
 		["classcolor"] = false, -- classcolor
 		["castbarcolor"] = { 0.3, 0.3, 0.3, 1 }, -- Color of player castbar
 		["nointerruptcolor"] = { 1, 0.1, 0.1, 0.5 }, -- Color of target castbar
@@ -127,7 +127,7 @@ TukuiCF["nameplate"] = {
 	["enable"] = true,			-- enable nice skinned nameplates that fit into tukui
 	["showhealth"] = true,		-- show health text on nameplate
 	["enhancethreat"] = true,	-- threat features based on if your a tank or not
-	["overlap"] = false,		--allow nameplates to overlap
+	["overlap"] = true,		--allow nameplates to overlap
 }
 
 TukuiCF["loot"] = {
